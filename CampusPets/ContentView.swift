@@ -6,16 +6,32 @@
 //
 
 import SwiftUI
+import Amplify
 
 struct ContentView: View {
+    
+    @EnvironmentObject private var authenticationService: AuthenticationService
+    @State var entry: [Entry] = []
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List {
+                if entry.isEmpty {
+                    Text("No entries!")
+                }
+                ForEach(entry, id: \.id) { entry in
+                    EntryView(entry: entry)
+                }
+            }
+            .navigationTitle("Entries")
+            .toolbar {
+                Button("Sign Out") {
+                    Task {
+                        await authenticationService.signOut()
+                    }
+                }
+            }
         }
-        .padding()
     }
 }
 

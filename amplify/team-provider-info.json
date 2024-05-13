@@ -1,0 +1,29 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-campuspets-dev-04504-authRole",
+      "UnauthRoleArn": "arn:aws:iam::992382698108:role/amplify-campuspets-dev-04504-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::992382698108:role/amplify-campuspets-dev-04504-authRole",
+      "Region": "us-west-1",
+      "DeploymentBucketName": "amplify-campuspets-dev-04504-deployment",
+      "UnauthRoleName": "amplify-campuspets-dev-04504-unauthRole",
+      "StackName": "amplify-campuspets-dev-04504",
+      "StackId": "arn:aws:cloudformation:us-west-1:992382698108:stack/amplify-campuspets-dev-04504/83e672f0-1054-11ef-a8ea-06e29eb8b40b",
+      "AmplifyAppId": "d2yrrypeslgy7z"
+    },
+    "categories": {
+      "auth": {
+        "campuspetsabca3dfb": {}
+      },
+      "function": {
+        "S3Trigger3fd9c420": {
+          "deploymentBucketName": "amplify-campuspets-dev-04504-deployment",
+          "s3Key": "amplify-builds/S3Trigger3fd9c420-63507251697431535a61-build.zip"
+        }
+      },
+      "storage": {
+        "s3318ad586": {}
+      }
+    }
+  }
+}

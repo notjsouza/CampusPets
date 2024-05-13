@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F6E05694DFF10485A8DF67F /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = CC49D42BA6C82F09A08C7411 /* amplifyconfiguration.json */; };
+		4BE3BEB8643E6C6F6FE43EB9 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F121AC2ADD4FD8FDC48B01E /* awsconfiguration.json */; };
+		D08B47B22BF0F63700120158 /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = D08B47B12BF0F63700120158 /* AWSAPIPlugin */; };
+		D08B47B42BF0F73E00120158 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08B47B32BF0F73E00120158 /* Entry.swift */; };
+		D08B47B62BF0F7B200120158 /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08B47B52BF0F7B200120158 /* EntryView.swift */; };
+		D08B47B92BF0FCF800120158 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08B47B82BF0FCF800120158 /* AuthenticationService.swift */; };
+		D08B47BB2BF0FF0200120158 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08B47BA2BF0FF0200120158 /* LandingView.swift */; };
 		D0B66B952BF0E1DC00976941 /* CampusPetsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B66B942BF0E1DC00976941 /* CampusPetsApp.swift */; };
 		D0B66B972BF0E1DC00976941 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B66B962BF0E1DC00976941 /* ContentView.swift */; };
 		D0B66B992BF0E1DD00976941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0B66B982BF0E1DD00976941 /* Assets.xcassets */; };
@@ -14,6 +21,9 @@
 		D0B66BA62BF0E1DD00976941 /* CampusPetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B66BA52BF0E1DD00976941 /* CampusPetsTests.swift */; };
 		D0B66BB02BF0E1DD00976941 /* CampusPetsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B66BAF2BF0E1DD00976941 /* CampusPetsUITests.swift */; };
 		D0B66BB22BF0E1DD00976941 /* CampusPetsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B66BB12BF0E1DD00976941 /* CampusPetsUITestsLaunchTests.swift */; };
+		D0B66BC02BF0E40700976941 /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = D0B66BBF2BF0E40700976941 /* AWSCognitoAuthPlugin */; };
+		D0B66BC22BF0E40700976941 /* AWSS3StoragePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = D0B66BC12BF0E40700976941 /* AWSS3StoragePlugin */; };
+		D0B66BC42BF0E40700976941 /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = D0B66BC32BF0E40700976941 /* Amplify */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +44,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F121AC2ADD4FD8FDC48B01E /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		CC49D42BA6C82F09A08C7411 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
+		D08B47B32BF0F73E00120158 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		D08B47B52BF0F7B200120158 /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
+		D08B47B72BF0FCB700120158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D08B47B82BF0FCF800120158 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		D08B47BA2BF0FF0200120158 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		D0B66B912BF0E1DC00976941 /* CampusPets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CampusPets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0B66B942BF0E1DC00976941 /* CampusPetsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusPetsApp.swift; sourceTree = "<group>"; };
 		D0B66B962BF0E1DC00976941 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +68,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D08B47B22BF0F63700120158 /* AWSAPIPlugin in Frameworks */,
+				D0B66BC42BF0E40700976941 /* Amplify in Frameworks */,
+				D0B66BC02BF0E40700976941 /* AWSCognitoAuthPlugin in Frameworks */,
+				D0B66BC22BF0E40700976941 /* AWSS3StoragePlugin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +92,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A77272FAEF99BD3F61C421D8 /* AmplifyConfig */ = {
+			isa = PBXGroup;
+			children = (
+				3F121AC2ADD4FD8FDC48B01E /* awsconfiguration.json */,
+				CC49D42BA6C82F09A08C7411 /* amplifyconfiguration.json */,
+			);
+			name = AmplifyConfig;
+			sourceTree = "<group>";
+		};
 		D0B66B882BF0E1DC00976941 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +108,7 @@
 				D0B66BA42BF0E1DD00976941 /* CampusPetsTests */,
 				D0B66BAE2BF0E1DD00976941 /* CampusPetsUITests */,
 				D0B66B922BF0E1DC00976941 /* Products */,
+				A77272FAEF99BD3F61C421D8 /* AmplifyConfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,10 +125,15 @@
 		D0B66B932BF0E1DC00976941 /* CampusPets */ = {
 			isa = PBXGroup;
 			children = (
+				D08B47B72BF0FCB700120158 /* Info.plist */,
+				D08B47B32BF0F73E00120158 /* Entry.swift */,
+				D08B47B52BF0F7B200120158 /* EntryView.swift */,
 				D0B66B942BF0E1DC00976941 /* CampusPetsApp.swift */,
 				D0B66B962BF0E1DC00976941 /* ContentView.swift */,
 				D0B66B982BF0E1DD00976941 /* Assets.xcassets */,
 				D0B66B9A2BF0E1DD00976941 /* Preview Content */,
+				D08B47B82BF0FCF800120158 /* AuthenticationService.swift */,
+				D08B47BA2BF0FF0200120158 /* LandingView.swift */,
 			);
 			path = CampusPets;
 			sourceTree = "<group>";
@@ -143,6 +179,12 @@
 			dependencies = (
 			);
 			name = CampusPets;
+			packageProductDependencies = (
+				D0B66BBF2BF0E40700976941 /* AWSCognitoAuthPlugin */,
+				D0B66BC12BF0E40700976941 /* AWSS3StoragePlugin */,
+				D0B66BC32BF0E40700976941 /* Amplify */,
+				D08B47B12BF0F63700120158 /* AWSAPIPlugin */,
+			);
 			productName = CampusPets;
 			productReference = D0B66B912BF0E1DC00976941 /* CampusPets.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +257,9 @@
 				Base,
 			);
 			mainGroup = D0B66B882BF0E1DC00976941;
+			packageReferences = (
+				D0B66BBE2BF0E40700976941 /* XCRemoteSwiftPackageReference "amplify-swift" */,
+			);
 			productRefGroup = D0B66B922BF0E1DC00976941 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,6 +278,8 @@
 			files = (
 				D0B66B9C2BF0E1DD00976941 /* Preview Assets.xcassets in Resources */,
 				D0B66B992BF0E1DD00976941 /* Assets.xcassets in Resources */,
+				4BE3BEB8643E6C6F6FE43EB9 /* awsconfiguration.json in Resources */,
+				2F6E05694DFF10485A8DF67F /* amplifyconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +304,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D08B47BB2BF0FF0200120158 /* LandingView.swift in Sources */,
+				D08B47B42BF0F73E00120158 /* Entry.swift in Sources */,
 				D0B66B972BF0E1DC00976941 /* ContentView.swift in Sources */,
 				D0B66B952BF0E1DC00976941 /* CampusPetsApp.swift in Sources */,
+				D08B47B62BF0F7B200120158 /* EntryView.swift in Sources */,
+				D08B47B92BF0FCF800120158 /* AuthenticationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +476,7 @@
 				DEVELOPMENT_TEAM = KM34WP3AX6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CampusPets/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -454,6 +506,7 @@
 				DEVELOPMENT_TEAM = KM34WP3AX6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CampusPets/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -588,6 +641,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D0B66BBE2BF0E40700976941 /* XCRemoteSwiftPackageReference "amplify-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aws-amplify/amplify-swift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D08B47B12BF0F63700120158 /* AWSAPIPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0B66BBE2BF0E40700976941 /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			productName = AWSAPIPlugin;
+		};
+		D0B66BBF2BF0E40700976941 /* AWSCognitoAuthPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0B66BBE2BF0E40700976941 /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			productName = AWSCognitoAuthPlugin;
+		};
+		D0B66BC12BF0E40700976941 /* AWSS3StoragePlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0B66BBE2BF0E40700976941 /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			productName = AWSS3StoragePlugin;
+		};
+		D0B66BC32BF0E40700976941 /* Amplify */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0B66BBE2BF0E40700976941 /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			productName = Amplify;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D0B66B892BF0E1DC00976941 /* Project object */;
 }

@@ -1,0 +1,18 @@
+{
+  "resourceName": "s3318ad586",
+  "policyUUID": "318ad586",
+  "bucketName": "campuspets048926b140c54fb48ff35f97e98f1f81",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "S3Trigger3fd9c420",
+  "groupAccess": {}
+}
