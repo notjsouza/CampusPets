@@ -11,16 +11,25 @@ import Amplify
 struct ContentView: View {
     
     @EnvironmentObject private var authenticationService: AuthenticationService
-    @State var entry: [Entry] = []
+    @EnvironmentObject private var entryService: EntryService
+    @State private var isSavingEntry = false
     
     var body: some View {
         NavigationStack {
             List {
-                if entry.isEmpty {
+                if entryService.entries.isEmpty {
                     Text("No entries!")
                 }
-                ForEach(entry, id: \.id) { entry in
+                ForEach(entryService.entries, id: \.id) { entry in
                     EntryView(entry: entry)
+                }
+                .onDelete{ indices in
+                    for index in indices {
+                        let entry = entryService.entries[index]
+                        Task {
+                            await entryService.delete(entry)
+                        }
+                    }
                 }
             }
             .navigationTitle("Entries")
@@ -31,6 +40,20 @@ struct ContentView: View {
                     }
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .bottomBar) {
+                    Button("⨁ New Entry") {
+                        isSavingEntry = true
+                    }
+                    .bold()
+                }
+            }
+            .sheet(isPresented: $isSavingEntry) {
+                SaveEntryView()
+            }
+        }
+        .task {
+            await entryService.fetchNotes()
         }
     }
 }
