@@ -25,14 +25,8 @@ struct EntryView: View {
             
             if let image = entry.image {
                 Spacer()
-                
-                Divider()
-                
-                Image(systemName: image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
+                RemoteImage(name: image)
                     .frame(width: 30, height: 30)
-                
             }
         }
     }

@@ -12,6 +12,9 @@
 		4BE3BEB8643E6C6F6FE43EB9 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F121AC2ADD4FD8FDC48B01E /* awsconfiguration.json */; };
 		66D16059DC67CB6AE119E3EC /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCE05E0C7D3095B442D91A /* Entry.swift */; };
 		D015C6132BF8C8BD00DE6A4A /* SaveEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D015C6122BF8C8BD00DE6A4A /* SaveEntryView.swift */; };
+		D0402E002BFDF1980057C24A /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0402DFF2BFDF1980057C24A /* StorageService.swift */; };
+		D0402E022BFDF43A0057C24A /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0402E012BFDF43A0057C24A /* RemoteImage.swift */; };
+		D0402E042BFDF6500057C24A /* PicturePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0402E032BFDF6500057C24A /* PicturePicker.swift */; };
 		D08B47B22BF0F63700120158 /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = D08B47B12BF0F63700120158 /* AWSAPIPlugin */; };
 		D08B47B62BF0F7B200120158 /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08B47B52BF0F7B200120158 /* EntryView.swift */; };
 		D08B47B92BF0FCF800120158 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08B47B82BF0FCF800120158 /* AuthenticationService.swift */; };
@@ -53,6 +56,9 @@
 		8BBCE05E0C7D3095B442D91A /* Entry.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Entry.swift; path = amplify/generated/models/Entry.swift; sourceTree = "<group>"; };
 		CC49D42BA6C82F09A08C7411 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
 		D015C6122BF8C8BD00DE6A4A /* SaveEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveEntryView.swift; sourceTree = "<group>"; };
+		D0402DFF2BFDF1980057C24A /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		D0402E012BFDF43A0057C24A /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
+		D0402E032BFDF6500057C24A /* PicturePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturePicker.swift; sourceTree = "<group>"; };
 		D08B47B52BF0F7B200120158 /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		D08B47B72BF0FCB700120158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D08B47B82BF0FCF800120158 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
@@ -148,12 +154,15 @@
 				D08B47B52BF0F7B200120158 /* EntryView.swift */,
 				D08B47BC2BF8C1C000120158 /* EntryService.swift */,
 				D015C6122BF8C8BD00DE6A4A /* SaveEntryView.swift */,
+				D0402DFF2BFDF1980057C24A /* StorageService.swift */,
+				D0402E032BFDF6500057C24A /* PicturePicker.swift */,
 				D0B66B942BF0E1DC00976941 /* CampusPetsApp.swift */,
 				D0B66B962BF0E1DC00976941 /* ContentView.swift */,
 				D0B66B982BF0E1DD00976941 /* Assets.xcassets */,
 				D0B66B9A2BF0E1DD00976941 /* Preview Content */,
 				D08B47B82BF0FCF800120158 /* AuthenticationService.swift */,
 				D08B47BA2BF0FF0200120158 /* LandingView.swift */,
+				D0402E012BFDF43A0057C24A /* RemoteImage.swift */,
 			);
 			path = CampusPets;
 			sourceTree = "<group>";
@@ -327,12 +336,15 @@
 				D08B47BD2BF8C1C000120158 /* EntryService.swift in Sources */,
 				D08B47BB2BF0FF0200120158 /* LandingView.swift in Sources */,
 				D0B66B972BF0E1DC00976941 /* ContentView.swift in Sources */,
+				D0402E022BFDF43A0057C24A /* RemoteImage.swift in Sources */,
 				D0B66B952BF0E1DC00976941 /* CampusPetsApp.swift in Sources */,
 				D08B47B62BF0F7B200120158 /* EntryView.swift in Sources */,
 				D08B47B92BF0FCF800120158 /* AuthenticationService.swift in Sources */,
 				E9584BA86AE35D7D998C0AA8 /* AmplifyModels.swift in Sources */,
+				D0402E042BFDF6500057C24A /* PicturePicker.swift in Sources */,
 				0F50576494C28F86BB1F27C8 /* Entry+Schema.swift in Sources */,
 				D015C6132BF8C8BD00DE6A4A /* SaveEntryView.swift in Sources */,
+				D0402E002BFDF1980057C24A /* StorageService.swift in Sources */,
 				66D16059DC67CB6AE119E3EC /* Entry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

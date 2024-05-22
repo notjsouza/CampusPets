@@ -10,9 +10,10 @@ import SwiftUI
 struct SaveEntryView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var entryService: EntryService
+    @EnvironmentObject private var storageService: StorageService
     @State private var name = ""
     @State private var description = ""
-    @State private var image = ""
+    @State private var image: Data? = nil
     
     var body: some View {
         Form {
@@ -22,17 +23,21 @@ struct SaveEntryView: View {
             }
             
             Section("Picture") {
-                TextField("Image Name", text: $image)
+                PicturePicker(selectedData: $image)
             }
             
             Button("Save Entry") {
+                let imageName = image != nil ? UUID().uuidString : nil
                 let entry = Entry(
                     name: name,
                     description: description.isEmpty ? nil : description,
-                    image: image.isEmpty ? nil : image
+                    image: imageName
                 )
                 
                 Task {
+                    if let image, let imageName {
+                        await storageService.upload(image, name: imageName)
+                    }
                     await entryService.save(entry)
                     dismiss()
                 }

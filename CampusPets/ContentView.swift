@@ -12,6 +12,7 @@ struct ContentView: View {
     
     @EnvironmentObject private var authenticationService: AuthenticationService
     @EnvironmentObject private var entryService: EntryService
+    @EnvironmentObject private var storageService: StorageService
     @State private var isSavingEntry = false
     
     var body: some View {
@@ -28,6 +29,9 @@ struct ContentView: View {
                         let entry = entryService.entries[index]
                         Task {
                             await entryService.delete(entry)
+                            if let image = entry.image {
+                                await storageService.remove(withName: image)
+                            }
                         }
                     }
                 }
