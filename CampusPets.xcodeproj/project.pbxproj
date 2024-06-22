@@ -15,6 +15,9 @@
 		D0402E002BFDF1980057C24A /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0402DFF2BFDF1980057C24A /* StorageService.swift */; };
 		D0402E022BFDF43A0057C24A /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0402E012BFDF43A0057C24A /* RemoteImage.swift */; };
 		D0402E042BFDF6500057C24A /* PicturePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0402E032BFDF6500057C24A /* PicturePicker.swift */; };
+		D0571F6C2C26EF0C0067920B /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0571F6B2C26EF0C0067920B /* CameraView.swift */; };
+		D0571F6E2C26EF7C0067920B /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0571F6D2C26EF7C0067920B /* CameraModel.swift */; };
+		D0571F702C26EFAA0067920B /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0571F6F2C26EFAA0067920B /* CameraPreview.swift */; };
 		D08B47B22BF0F63700120158 /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = D08B47B12BF0F63700120158 /* AWSAPIPlugin */; };
 		D08B47B62BF0F7B200120158 /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08B47B52BF0F7B200120158 /* EntryView.swift */; };
 		D08B47B92BF0FCF800120158 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08B47B82BF0FCF800120158 /* AuthenticationService.swift */; };
@@ -59,6 +62,9 @@
 		D0402DFF2BFDF1980057C24A /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		D0402E012BFDF43A0057C24A /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		D0402E032BFDF6500057C24A /* PicturePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturePicker.swift; sourceTree = "<group>"; };
+		D0571F6B2C26EF0C0067920B /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		D0571F6D2C26EF7C0067920B /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
+		D0571F6F2C26EFAA0067920B /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		D08B47B52BF0F7B200120158 /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		D08B47B72BF0FCB700120158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D08B47B82BF0FCF800120158 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
@@ -66,7 +72,7 @@
 		D08B47BC2BF8C1C000120158 /* EntryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryService.swift; sourceTree = "<group>"; };
 		D0B66B912BF0E1DC00976941 /* CampusPets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CampusPets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0B66B942BF0E1DC00976941 /* CampusPetsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusPetsApp.swift; sourceTree = "<group>"; };
-		D0B66B962BF0E1DC00976941 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D0B66B962BF0E1DC00976941 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; usesTabs = 1; };
 		D0B66B982BF0E1DD00976941 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0B66B9B2BF0E1DD00976941 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D0B66BA12BF0E1DD00976941 /* CampusPetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CampusPetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +162,8 @@
 				D015C6122BF8C8BD00DE6A4A /* SaveEntryView.swift */,
 				D0402DFF2BFDF1980057C24A /* StorageService.swift */,
 				D0402E032BFDF6500057C24A /* PicturePicker.swift */,
+				D0571F6B2C26EF0C0067920B /* CameraView.swift */,
+				D0571F6D2C26EF7C0067920B /* CameraModel.swift */,
 				D0B66B942BF0E1DC00976941 /* CampusPetsApp.swift */,
 				D0B66B962BF0E1DC00976941 /* ContentView.swift */,
 				D0B66B982BF0E1DD00976941 /* Assets.xcassets */,
@@ -163,6 +171,7 @@
 				D08B47B82BF0FCF800120158 /* AuthenticationService.swift */,
 				D08B47BA2BF0FF0200120158 /* LandingView.swift */,
 				D0402E012BFDF43A0057C24A /* RemoteImage.swift */,
+				D0571F6F2C26EFAA0067920B /* CameraPreview.swift */,
 			);
 			path = CampusPets;
 			sourceTree = "<group>";
@@ -334,12 +343,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D08B47BD2BF8C1C000120158 /* EntryService.swift in Sources */,
+				D0571F6C2C26EF0C0067920B /* CameraView.swift in Sources */,
+				D0571F6E2C26EF7C0067920B /* CameraModel.swift in Sources */,
 				D08B47BB2BF0FF0200120158 /* LandingView.swift in Sources */,
 				D0B66B972BF0E1DC00976941 /* ContentView.swift in Sources */,
 				D0402E022BFDF43A0057C24A /* RemoteImage.swift in Sources */,
 				D0B66B952BF0E1DC00976941 /* CampusPetsApp.swift in Sources */,
 				D08B47B62BF0F7B200120158 /* EntryView.swift in Sources */,
 				D08B47B92BF0FCF800120158 /* AuthenticationService.swift in Sources */,
+				D0571F702C26EFAA0067920B /* CameraPreview.swift in Sources */,
 				E9584BA86AE35D7D998C0AA8 /* AmplifyModels.swift in Sources */,
 				D0402E042BFDF6500057C24A /* PicturePicker.swift in Sources */,
 				0F50576494C28F86BB1F27C8 /* Entry+Schema.swift in Sources */,
@@ -513,11 +525,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CampusPets/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -527,7 +540,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -543,11 +556,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CampusPets/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -557,7 +571,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

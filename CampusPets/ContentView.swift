@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Amplify
+import AVFoundation
 
 struct ContentView: View {
     
@@ -14,6 +15,7 @@ struct ContentView: View {
     @EnvironmentObject private var entryService: EntryService
     @EnvironmentObject private var storageService: StorageService
     @State private var isSavingEntry = false
+	@State private var isTakingPicture = false
     
     var body: some View {
         NavigationStack {
@@ -45,15 +47,28 @@ struct ContentView: View {
                 }
             }
             .toolbar {
-                ToolbarItem(placement: .bottomBar) {
-                    Button("⨁ New Entry") {
+                ToolbarItemGroup(placement: .bottomBar) {
+                    Button("", systemImage: "plus.app.fill") {
                         isSavingEntry = true
                     }
                     .bold()
+					.sheet(isPresented: $isSavingEntry) {
+							SaveEntryView()
+					}
+					
+					Spacer()
+					
+					Button("", systemImage: "camera.fill") {
+						isTakingPicture = true
+					}
+					.bold()
+					.sheet(isPresented: $isTakingPicture) {
+						CameraView()
+					}
+					
+					Spacer()
+					
                 }
-            }
-            .sheet(isPresented: $isSavingEntry) {
-                SaveEntryView()
             }
         }
         .task {
@@ -63,5 +78,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+	ContentView()
 }
