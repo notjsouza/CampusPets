@@ -22,11 +22,28 @@ struct LandingView: View {
                 if authenticationService.isSignedIn {
                     ContentView()
                 } else {
+                    Button(action: {
+                        Task {
+                            await authenticationService.signIn(presentationAnchor: window)
+                        }
+                    }) {
+                        Text("Log In")
+                            .font(.system(size: 24))
+                            .foregroundColor(.black)
+                            .fontWeight(.semibold)
+                            .padding(.vertical, 15)
+                            .padding(.horizontal, 20)
+                            .background(Color.white)
+                            .clipShape(Capsule())
+                    }
+                    .bold()
+                    /*
                     Button("Sign In") {
                         Task {
                             await authenticationService.signIn(presentationAnchor: window)
                         }
                     }
+                     */
                 }
             }
             .opacity(isLoading ? 0.5 : 1)

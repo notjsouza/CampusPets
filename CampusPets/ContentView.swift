@@ -7,59 +7,64 @@
 
 import SwiftUI
 import Amplify
-import AVFoundation
+import MapKit
 
 struct ContentView: View {
     
     @EnvironmentObject private var authenticationService: AuthenticationService
-    @EnvironmentObject private var entryService: EntryService
-    @EnvironmentObject private var storageService: StorageService
+	
     @State private var isSavingEntry = false
 	@State private var isTakingPicture = false
+	@State private var isDisplayingEntries = false
     
     var body: some View {
         NavigationStack {
-            List {
-                if entryService.entries.isEmpty {
-                    Text("No entries!")
-                }
-                ForEach(entryService.entries, id: \.id) { entry in
-                    EntryView(entry: entry)
-                }
-                .onDelete{ indices in
-                    for index in indices {
-                        let entry = entryService.entries[index]
-                        Task {
-                            await entryService.delete(entry)
-                            if let image = entry.image {
-                                await storageService.remove(withName: image)
-                            }
-                        }
-                    }
-                }
-            }
-            .navigationTitle("Entries")
+			VStack {
+				MapView()
+			}
             .toolbar {
-                Button("Sign Out") {
-                    Task {
-                        await authenticationService.signOut()
-                    }
+				Button(action: {
+					Task {
+						await authenticationService.signOut()
+					}
+				}) {
+					Text("Sign Out")
+						.foregroundColor(.black)
+						.fontWeight(.semibold)
+						.padding(.vertical, 5)
+						.padding(.horizontal, 10)
+						.background(Color.white)
+						.clipShape(Capsule())
                 }
             }
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
-                    Button("", systemImage: "plus.app.fill") {
-                        isSavingEntry = true
-                    }
-                    .bold()
+                    
+					Button(action: { isSavingEntry = true }) {
+						Image(systemName: "plus.app.fill")
+							.foregroundColor(.black)
+							.fontWeight(.semibold)
+							.padding(.vertical, 15)
+							.padding(.horizontal, 15)
+							.background(Color.white)
+							.clipShape(Capsule())
+					}
+					.bold()
 					.sheet(isPresented: $isSavingEntry) {
-							SaveEntryView()
+						SaveEntryView()
 					}
 					
 					Spacer()
 					
-					Button("", systemImage: "camera.fill") {
-						isTakingPicture = true
+					Button(action: { isTakingPicture = true }) {
+						Image(systemName: "camera.fill")
+							.foregroundColor(.black)
+							.fontWeight(.semibold)
+							.padding(.vertical, 20)
+							.padding(.horizontal, 40)
+							.background(Color.white)
+							.clipShape(Capsule())
+						
 					}
 					.bold()
 					.sheet(isPresented: $isTakingPicture) {
@@ -68,11 +73,21 @@ struct ContentView: View {
 					
 					Spacer()
 					
+					Button(action: { isDisplayingEntries = true }) {
+						Image(systemName: "list.clipboard.fill")
+						.foregroundColor(.black)
+						.fontWeight(.semibold)
+						.padding(.vertical, 10)
+						.padding(.horizontal, 15)
+						.background(Color.white)
+						.clipShape(Capsule())
+					}
+					.bold()
+					.sheet(isPresented: $isDisplayingEntries) {
+						DisplayEntries()
+					}
                 }
             }
-        }
-        .task {
-            await entryService.fetchNotes()
         }
     }
 }

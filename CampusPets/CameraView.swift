@@ -24,8 +24,16 @@ struct CameraView: View {
                         
                         Spacer()
                         
+                        Spacer()
+                        
                         Button(action: camera.retake, label: {
                             Image(systemName: "arrow.triangle.2.circlepath.camera")
+                                .foregroundColor(.black)
+                                .fontWeight(.semibold)
+                                .padding(.vertical, 10)
+                                .padding(.horizontal, 10)
+                                .background(Color.white)
+                                .clipShape(Capsule())
                         })
                         .padding(.trailing, 10)
                         
@@ -41,6 +49,7 @@ struct CameraView: View {
                         
                         Button(action: { if !camera.isSaved{ camera.savePic() } }, label: {
                             Text(camera.isSaved ? "Saved" : "Save")
+                                .font(.system(size: 18))
                                 .foregroundColor(.black)
                                 .fontWeight(.semibold)
                                 .padding(.vertical, 10)

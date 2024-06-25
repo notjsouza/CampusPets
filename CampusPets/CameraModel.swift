@@ -47,6 +47,7 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     }
     
     func setUp() {
+        
         do {
             
             self.session.beginConfiguration()
@@ -54,13 +55,9 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
             let device = AVCaptureDevice.default(.builtInDualCamera, for: .video, position: .back)
             let input = try AVCaptureDeviceInput(device: device!)
             
-            if self.session.canAddInput(input) {
-                self.session.addInput(input)
-            }
+            if self.session.canAddInput(input) { self.session.addInput(input) }
             
-            if self.session.canAddOutput(self.output) {
-                self.session.addOutput(self.output)
-            }
+            if self.session.canAddOutput(self.output) { self.session.addOutput(self.output) }
             
             self.session.commitConfiguration()
             
@@ -70,37 +67,30 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
             print(error.localizedDescription)
             
         }
+        
     }
     
     func takePic() {
         
-        DispatchQueue.global(qos: .background).async {
+        self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
             
-            self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
-            self.session.stopRunning()
-            
-            DispatchQueue.main.async {
-                withAnimation{ self.isTaken.toggle() }
-            }
-            
-        }
+        withAnimation{ self.isTaken.toggle() }
+        
         
     }
     
     func retake() {
         
-        DispatchQueue.global(qos: .background).async {
-            
-            self.session.startRunning()
-            DispatchQueue.main.async {
-                withAnimation{ self.isTaken.toggle() }
-                self.isSaved = false
-            }
-            
-        }
+        self.session.startRunning()
+        withAnimation{ self.isTaken.toggle() }
+        self.isSaved = false
+        
+        
     }
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        
+        self.session.stopRunning()
         
         if error != nil { return }
         
@@ -113,7 +103,7 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     
     func savePic() {
         
-        guard let image = UIImage(data: self.picData) else {
+        guard let image = UIImage(data: picData) else {
             print("Failed to create UIImage from picData")
             return
         }

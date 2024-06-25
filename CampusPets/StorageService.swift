@@ -9,6 +9,7 @@ import Foundation
 import Amplify
 
 class StorageService: ObservableObject {
+        
     func upload(_ data: Data, name: String) async {
         let task = Amplify.Storage.uploadData(
             key: name,
