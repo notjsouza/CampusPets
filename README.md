@@ -2,4 +2,4 @@
 
 ---
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/oBJAXwau6Lo/0.jpg)](https://www.youtube.com/watch?v=oBJAXwau6Lo)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/5qSsKd9WbuM/0.jpg)](https://youtube.com/shorts/5qSsKd9WbuM)
