@@ -11,27 +11,28 @@ import CoreLocation
 import Combine
 
 class MapModel: NSObject, ObservableObject, CLLocationManagerDelegate {
-    var locationManager: CLLocationManager
     @Published var currentLocation: CLLocation?
+    @Published var annotations: [Entry] = []
+    @Published var region = MKCoordinateRegion()
+    private let locationManager = CLLocationManager()
     
     override init() {
-        locationManager = CLLocationManager()
         super.init()
         locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        
+//        forEach(entry : ) {
+//            self.annotations.append(entry)
+//        }
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
-            DispatchQueue.main.async {
-                self.currentLocation = location
-            }
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Failed to get location with error \(error.localizedDescription)")
+        guard let location = locations.last else { return }
+        currentLocation = location
+        
     }
     
     func setRegion(location: CLLocation, region: inout MKCoordinateRegion) {
@@ -40,4 +41,11 @@ class MapModel: NSObject, ObservableObject, CLLocationManagerDelegate {
             longitude: round(location.coordinate.longitude * 10000) / 10000
         )
     }
+    
+    func addAnnotation(_ entry: Entry) {
+        DispatchQueue.main.async {
+            self.annotations.append(entry)
+        }
+    }
 }
+

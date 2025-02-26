@@ -9,6 +9,8 @@ extension Entry {
     case name
     case description
     case image
+    case latitude
+    case longitude
     case createdAt
     case updatedAt
   }
@@ -20,7 +22,8 @@ extension Entry {
     let entry = Entry.keys
     
     model.authRules = [
-      rule(allow: .owner, ownerField: "owner", identityClaim: "cognito:username", provider: .userPools, operations: [.create, .update, .delete, .read])
+      rule(allow: .public, operations: [.read]),
+      rule(allow: .owner, ownerField: "owner", identityClaim: "cognito:username", provider: .userPools, operations: [.create, .update, .delete])
     ]
     
     model.listPluralName = "Entries"
@@ -35,8 +38,10 @@ extension Entry {
       .field(entry.name, is: .required, ofType: .string),
       .field(entry.description, is: .optional, ofType: .string),
       .field(entry.image, is: .optional, ofType: .string),
-      .field(entry.createdAt, is: .optional, isReadOnly: true, ofType: .dateTime),
-      .field(entry.updatedAt, is: .optional, isReadOnly: true, ofType: .dateTime)
+      .field(entry.latitude, is: .optional, ofType: .double),
+      .field(entry.longitude, is: .optional, ofType: .double),
+      .field(entry.createdAt, is: .optional, ofType: .dateTime),
+      .field(entry.updatedAt, is: .optional, ofType: .dateTime)
     )
     }
 }

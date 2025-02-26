@@ -17,13 +17,14 @@ struct SaveEntryView: View {
     
     var body: some View {
         Form {
-            Section("Details") {
-                TextField("Name", text: $name)
-                TextField("Description", text: $description)
-            }
             
             Section("Picture") {
                 PicturePicker(selectedData: $image)
+            }
+            
+            Section("Details") {
+                TextField("Name", text: $name)
+                TextField("Description", text: $description)
             }
             
             Button("Save Entry") {

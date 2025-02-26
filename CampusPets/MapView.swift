@@ -10,40 +10,32 @@ import MapKit
 
 struct MapView: View {
     
-    @StateObject private var mapModel = MapModel()
+    @Binding var region: MKCoordinateRegion
     
-    @State private var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 32.8802, longitude: -117.2394),
-        span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
-    )
+    @EnvironmentObject var mapModel: MapModel
+    @EnvironmentObject private var entryService: EntryService
     
     var body: some View {
         ZStack {
-            Map(coordinateRegion: $region)
-                .edgesIgnoringSafeArea(.all)
-            
-            VStack {
-                Spacer()
-                Button(action: {
-                    if let location = mapModel.currentLocation {
-                        mapModel.setRegion(location: location, region: &region)
+            Map(coordinateRegion: $region,
+                annotationItems: mapModel.annotations) { entry in
+                MapAnnotation(coordinate: CLLocationCoordinate2D(
+                    latitude: entry.latitude ?? 0,
+                    longitude: entry.longitude ?? 0
+                )) {
+                    if let imageName = entry.image {
+                        RemoteImage(name: imageName)
+                            .frame(width: 64, height: 64)
+                            .clipShape(Circle())
+                            .overlay(
+                                Circle()
+                                    .stroke(Color.white, lineWidth: 2)
+                                )
+                            .shadow(radius: 3)
                     }
-                }) {
-                    Image(systemName: "location.fill")
-                        .foregroundColor(.black)
-                        .fontWeight(.semibold)
-                        .padding(.vertical, 15)
-                        .padding(.horizontal, 15)
-                        .background(Color.white)
-                        .clipShape(Capsule())
                 }
-                .padding()
             }
-        }
-        .onAppear {
-            if let location = mapModel.currentLocation {
-                mapModel.setRegion(location: location, region: &region)
-            }
+            .edgesIgnoringSafeArea(.all)
         }
     }
 }

@@ -11,6 +11,8 @@ import AVFoundation
 import Amplify
 import AWSS3StoragePlugin
 
+
+
 class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     
     @Published var isTaken = false
@@ -18,74 +20,77 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     @Published var alert = false
     @Published var output = AVCapturePhotoOutput()
     @Published var preview : AVCaptureVideoPreviewLayer!
-    @Published var isSaved = false
     @Published var picData = Data(count: 0)
+    @Published var showingEntryForm = false
     
     func Check() {
         
-        switch AVCaptureDevice.authorizationStatus(for: .video) {
-            
-        case .authorized:
-            setUp()
-            return
-            
-        case .notDetermined:
-            AVCaptureDevice.requestAccess(for: .video) { (status) in
-                if status {
+        DispatchQueue.global(qos: .userInitiated).async {
+            switch AVCaptureDevice.authorizationStatus(for: .video) {
+                
+            case .authorized:
+                DispatchQueue.main.async {
                     self.setUp()
                 }
+                return
+                
+            case .notDetermined:
+                AVCaptureDevice.requestAccess(for: .video) { (status) in
+                    if status {
+                        DispatchQueue.main.async {
+                            self.setUp()
+                        }
+                    }
+                }
+                
+            case .denied:
+                DispatchQueue.main.async {
+                    self.alert.toggle()
+                }
+                return
+                
+            default:
+                return
+                
             }
-            
-        case .denied:
-            self.alert.toggle()
-            return
-            
-        default:
-            return
-            
         }
     }
     
     func setUp() {
         
-        do {
+        DispatchQueue.global(qos: .userInitiated).async {
             
-            self.session.beginConfiguration()
-            
-            let device = AVCaptureDevice.default(.builtInDualCamera, for: .video, position: .back)
-            let input = try AVCaptureDeviceInput(device: device!)
-            
-            if self.session.canAddInput(input) { self.session.addInput(input) }
-            
-            if self.session.canAddOutput(self.output) { self.session.addOutput(self.output) }
-            
-            self.session.commitConfiguration()
-            
+            do {
+                self.session.beginConfiguration()
+                
+                let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
+                let input = try AVCaptureDeviceInput(device: device!)
+                
+                if self.session.canAddInput(input) { self.session.addInput(input) }
+                
+                if self.session.canAddOutput(self.output) { self.session.addOutput(self.output) }
+                
+                self.session.commitConfiguration()
+                
+            }
+            catch {
+                print(error.localizedDescription)
+            }
         }
-        catch {
-            
-            print(error.localizedDescription)
-            
-        }
-        
     }
     
     func takePic() {
         
         self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
-            
+        
         withAnimation{ self.isTaken.toggle() }
-        
-        
     }
     
     func retake() {
         
         self.session.startRunning()
         withAnimation{ self.isTaken.toggle() }
-        self.isSaved = false
-        
-        
+        self.showingEntryForm = false
     }
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
@@ -100,27 +105,47 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
         self.picData = imageData
         
     }
+}
+
+struct EntryFormSheet: View {
+    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var entryService: EntryService
+    @EnvironmentObject private var storageService: StorageService
+    @ObservedObject var camera: CameraModel
+    @ObservedObject var mapModel: MapModel
     
-    func savePic() {
-        
-        guard let image = UIImage(data: picData) else {
-            print("Failed to create UIImage from picData")
-            return
-        }
-        
-        guard let imageData = image.jpegData(compressionQuality: 0.8) else {
-            print("Failed to convert image to JPEG data")
-            return
-        }
-        
-        let key = "images/\(UUID().uuidString).jpg"
-        
-        let uploadTask = Amplify.Storage.uploadData(key: key, data: imageData)
-        
-        Task {
-            for await progress in await uploadTask.progress {
-                print("Upload progress: \(progress.fractionCompleted)")
+    @State private var name = ""
+    @State private var description = ""
+    
+    var body: some View {
+        NavigationView {
+            Form {
+                Section("Details") {
+                    TextField("Name", text: $name)
+                    TextField("Description", text: $description)
+                }
+                
+                Button("Create Entry") {
+                    let imageName = UUID().uuidString
+                    let entry = Entry(
+                        name: name,
+                        description: description.isEmpty ? nil : description,
+                        image: imageName,
+                        latitude: mapModel.currentLocation?.coordinate.latitude ?? 0,
+                        longitude: mapModel.currentLocation?.coordinate.longitude ?? 0
+                    )
+                    
+                    Task {
+                        await storageService.upload(camera.picData, name: imageName)
+                        await entryService.save(entry)
+                        mapModel.addAnnotation(entry)
+                        dismiss()
+                    }
+                }
+                .disabled(name.isEmpty)
             }
+            .navigationTitle("New Entry")
+            .navigationBarItems(trailing: Button("Cancel") { dismiss() })
         }
     }
 }

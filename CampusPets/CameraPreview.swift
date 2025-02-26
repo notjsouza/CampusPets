@@ -19,11 +19,13 @@ struct CameraPreview: UIViewRepresentable {
         camera.preview = AVCaptureVideoPreviewLayer(session: camera.session)
         camera.preview.frame = view.frame
         
-        //change this to match what's needed
         camera.preview.videoGravity = .resizeAspectFill
         view.layer.addSublayer(camera.preview)
         
-        camera.session.startRunning()
+        DispatchQueue.global(qos: .background).async {
+            camera.session.startRunning()
+        }
+        
         return view
     }
     

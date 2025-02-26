@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "campuspets",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authcampuspetsabca3dfb",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

@@ -37,13 +37,6 @@ struct LandingView: View {
                             .clipShape(Capsule())
                     }
                     .bold()
-                    /*
-                    Button("Sign In") {
-                        Task {
-                            await authenticationService.signIn(presentationAnchor: window)
-                        }
-                    }
-                     */
                 }
             }
             .opacity(isLoading ? 0.5 : 1)
